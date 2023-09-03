@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body  class="body">
+    <h5>Rock Paper Scissors</h5>
+
+    <button  class="button-1" onclick="
+    playgame('Rock')
+    "><img src="/project-1/images/rock-emoji.png" class="img" alt=""></button>
+
+    <button class="button-1" onclick="playgame('Paper')"><img src="/project-1/images/paper-emoji.png" class="img" alt=""></button>
+
+    <button class="button-1" onclick="playgame('Scissors')"><img src="/project-1/images/scissors-emoji.png" class="img" alt=""></button>
+
+    <p class="game"></p>
+    <p class="computer"></p>
+    <p class="wins" ></p>
+
+    <button onclick="conformation()"
+    class="reset">Reset Score</button>
+
+    <button class="reset res" onclick="autoplay()" onkeydown="if(event.key == 'Enter'){
+        autoplay();
+    }" 
+    >AutoPlay</button>
+    
+    <p class="rs"></p>
+</body>
+<script>
+
+    var score = JSON.parse(localStorage.getItem('score')); 
+    
+    document.querySelector('.wins').innerHTML = `
+    Wins: ${score.wins} Lose: ${score.Lose} Draw: ${score.Draw}`;
+
+    function game(){
+        score.wins = 0;
+        score.Lose = 0;
+        score.Draw = 0;
+        localStorage.setItem('score', JSON.stringify(score));
+        document.querySelector('.wins').innerHTML = `
+        Wins: 0 Lose: 0 Draw: 0`;
+    }
+
+    function conformation(){
+        document.querySelector('.rs').innerHTML = `Are you sure, want to reset the score?
+        <button class= "yes reset">Yes</button>
+        <button class = "no reset">No</button>`;
+
+        document.querySelector('.yes').addEventListener('click', () => {
+            game();
+            document.querySelector('.rs').innerHTML = '';
+        });
+
+        document.querySelector('.no').addEventListener('click', () => {
+            document.querySelector('.rs').innerHTML = '';
+        })
+    }
+
+   
+    function gamemov(){
+        var number = Math.random();
+
+        if(number < 0.4){
+            play = "Rock";
+        } if (number > 0.4 && number < 0.7){ 
+            play = "Paper";
+        } if(number > 0.7){
+            play = "Scissors";
+        }
+        return play;
+    }
+
+        var result = '';
+        var s = '';
+    function gamemove(){
+        var number = Math.random();
+        
+
+    if(number < 0.4){
+        result = "Rock";
+
+    } if (number > 0.4 && number < 0.7){
+        result = "Paper"
+       
+    } if(number > 0.7){
+        result = "Scissors"
+     
+    }
+    }
+    
+    function playgame(play){
+        gamemove();
+
+    if(play === 'Rock'){
+        if(result == 'Rock'){
+        var a =`You picked ${play}. Computer picked ${result}. ${s = 'Draw'}`;
+    } if (result == 'Paper'){
+        var a = `You picked ${play}. Computer picked ${result}. ${s = 'You Lose'}`;
+    } if (result == 'Scissors'){
+        var a = `You picked ${play}. Computer picked ${result}. ${s = 'You Won'}`;
+    }
+    }
+
+    if(play === 'Paper'){
+        if(result == 'Rock'){
+        var a = `You picked ${play}. Computer picked ${result}. ${s = 'You Won'}`;
+    } if (result == 'Paper'){
+        var a = `You picked ${play}. Computer picked ${result}. ${s = 'Draw'}`;
+    } if (result == 'Scissors'){
+        var a = `You picked ${play}. Computer picked ${result}. ${s = 'You Lose'}`;
+    }
+    }
+
+    if(play === 'Scissors'){
+        if(result == 'Rock'){
+        var a = `You picked ${play}. Computer picked ${result}. ${s = 'You Lose'}`
+    } if (result == 'Paper'){
+        var a = `You picked ${play}. Computer picked ${result}. ${s = 'You Won'}`
+    } if (result == 'Scissors'){
+        var a = `You picked ${play}. Computer picked ${result}. ${s = 'Draw'}`
+    }
+    }
+
+    if(a === `You picked ${play}. Computer picked ${result}. You Won`){
+        score.wins += 1;
+    } else if (a === `You picked ${play}. Computer picked ${result}. You Lose`){
+        score.Lose += 1;
+    } else if(a === `You picked ${play}. Computer picked ${result}. Draw`){
+        score.Draw += 1;
+    }
+    
+    localStorage.setItem('score', JSON.stringify(score));
+    
+    document.querySelector('.wins').innerHTML = `
+    Wins: ${score.wins} Lose: ${score.Lose} Draw: ${score.Draw}`;
+
+    document.querySelector('.game').innerHTML = `You Picked <img class="r" src="/project-1/images/${play}-emoji.png" alt="">`;
+
+    document.querySelector('.computer').innerHTML = `<img class="r" src="/project-1/images/${result}-emoji.png" alt="">Computer Picked. ${s}`;
+}
+
+let autoplayy = false;
+    let autoplayid = '';
+function autoplay(){
+    
+    if(!autoplayy){
+        autoplayid = setInterval(function(){
+        var play =  gamemov();
+        playgame(play);
+        }, 1000);
+        document.querySelector('.res').innerHTML = 'Stop Playing';
+        autoplayy = true;
+    } else {
+        clearInterval(autoplayid);
+        document.querySelector('.res').innerHTML = 'AutoPlay';
+        autoplayy = false;
+    }
+}
+
+   
+
+
+    
+</script>
+</html>

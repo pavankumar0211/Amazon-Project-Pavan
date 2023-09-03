@@ -1,0 +1,17 @@
+.button , .button-1{
+    height: 5rem;
+    width: 5rem;
+    font-size: 1.75rem;
+    border-radius: 2.5rem;
+    border: transparent;
+    cursor: pointer;
+}
+
+.button-1{
+    background-color: orange;
+    color: white;
+}
+
+.cal{
+    font-size: 2rem;
+}

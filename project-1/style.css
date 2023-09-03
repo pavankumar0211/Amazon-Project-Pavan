@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+
+.you{
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+    text-transform: capitalize;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.youu {
+    background-color: grey;
+}
+
+.amazon{
+    margin-top: 4rem;
+}
+
+.input{
+    padding: 1rem;
+}
+
+.button{
+    background-color: green;
+    color: white;
+    border: transparent;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+
+/* Rock Paper Game Css */
+
+.img{
+    height: 4rem;
+}
+
+.button-1{
+    border: white solid 5px;
+    padding: 3rem;
+    background-color: black;
+    border-radius: 5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.reset{
+    padding: 1rem;
+    border: transparent;
+    border-radius: 0.5rem;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    /* margin-top: 2rem; */
+}
+
+.r {
+    height: 2rem;
+}
+
+.rs{
+    background-color: green;
+    padding: 1rem;
+    
+}

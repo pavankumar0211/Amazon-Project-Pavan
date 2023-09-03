@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Project</title>
+</head>
+<body>
+
+    <button> Show cart </button>
+    <button onclick="
+        button(1)">
+    1</button>
+    <button onclick="
+       button(2)">
+    2</button>
+    <button onclick="
+        button(3)">
+    3</button>
+    <button onclick="
+        button(4)">
+    4</button>  
+    <button onclick="
+         button(5)">
+    5</button>
+    <button onclick="
+        button(-1)">
+    Remove</button>
+    <button onclick="
+        button(-2)">
+    -2</button>
+    <button onclick="
+         button(-3)">
+    -3</button>
+     <button onclick="
+        cart = 0;
+        console.log(cart);">
+    Reset Cart</button>
+
+    <p class="name"></p>
+</body>
+<script>
+    var cart = 0;
+    document.querySelector('.name').innerHTML = `Cart Quantity: ${cart}`;
+    function button(number){
+        if(cart + number > 10){
+            alert(`Your cart is full`);
+        } else if(cart + number < 0){
+            alert(`Not enough items`);}
+            else {cart += number;
+            console.log(cart);
+        }
+
+        document.querySelector('.name').innerHTML = `Cart Quantity: ${cart}`;
+    }
+
+   
+
+</script>
+</html>

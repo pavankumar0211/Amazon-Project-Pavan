@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <button class="button" onclick="button()">Add to Cart</button>
+   <p class="class"></p>
+
+   <button class="addd" >Add</button>
+   <button class="remove" onclick="clic('b')">Remove</button>
+
+
+
+</body>
+<script>
+
+    
+var id ;
+    function button(){
+      var a = document.querySelector('.class');
+      a.innerHTML = 'Added to Cart';
+      
+      clearInterval(id);
+      id =  setTimeout(
+       function () {
+          a.innerHTML = '';
+        }, 2000);  
+      
+    }
+
+
+  
+
+  
+     document.querySelector('.addd').addEventListener('click' , () => {
+          clic('a');
+     });
+
+
+      var numb = '';
+      
+      function clic(button){
+
+        if(button === 'a'){
+          numb++;
+        } else if (button === 'b'){
+          numb--;
+        }
+      
+      
+        if(numb<=0){
+          setTimeout(() => {
+        document.title = `App`;
+        }, 1000);} else {
+          setTimeout(() => {
+        document.title = `${numb} New Messages`;
+        }, 1000);
+        }
+       
+        // console.log(numb);
+      }
+     
+
+
+      function num(nums)  {
+        var a = 0;
+
+        nums.forEach((nu) => {
+          if(nu> 0){
+            a++;
+          }
+        });
+
+        return a;
+      }    
+    
+      console.log(num([1, -3, 5,7]));
+
+
+      function addnum(array, num){
+       return array.map((number) => number + num);
+       
+      }
+      
+      // console.log(addnum([1,2,4],2));
+
+
+    function removeEgg(foods){
+      var count = 0;
+
+      var a = foods.filter((foods) => {
+        if(foods === 'egg' && count <2){
+          count++;
+          return false;
+        } else return true;
+      });
+
+      return a;
+    }  
+
+    console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+  </script>
+</html>
+

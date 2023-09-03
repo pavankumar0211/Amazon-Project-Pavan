@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <p>To Do List</p>
+    <div class="flex">
+        <input type="text" placeholder="ToDo Name" class="inputclass">
+    <input type="date" name="" id="" class="date">
+    
+    <button type="submit" onclick="aa()" class="add">Add</button>
+    </div>
+     <div class="divv"></div>     
+   
+    
+</body>
+<script>
+    // var b = [];
+   
+    // function add(){
+    //     var a = document.querySelector('input');
+    //     b.push(a.value);
+    //     var c = '';
+
+    //     for(i=0; i<b.length; i++){
+    //         var d = `<p>${b[i]}</p>`;
+    //         c += d;
+    //         document.querySelector('.todo').innerHTML = c;
+    //     }
+        
+        
+    //     console.log(c);
+    //     a.value = '';
+    // }
+
+   
+    var e =  JSON.parse(localStorage.getItem('list')) || [];
+    pushh();
+    function pushh(){
+        var z = '';
+        for(i=0; i<e.length; i++){
+            var a = `<div class="flex-2">
+                <div>${e[i].name}</div>
+                <div>${e[i].date}</div>
+                 <button onclick="
+                  e.splice(${i}, 1);
+                  pushh();
+      " class="delete-todo-button">Delete</button> 
+      </div>
+           `;
+            z += a; 
+            localStorage.setItem('list', JSON.stringify(e));
+        }
+        document.querySelector('.divv').innerHTML = z;
+       
+        
+    }
+
+    function aa(){
+        var b = document.querySelector('.inputclass');
+        var  data = document.querySelector('.date');
+        var date = data.value;
+        var c = b.value;
+        var entry = {
+            name: c,
+            date
+        }
+        b.value = '';
+        data.value = '';
+
+        e.push(entry);
+        pushh();
+    }
+    
+
+</script>
+</html>

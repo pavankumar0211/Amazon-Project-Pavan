@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>Youtube Subscribe Button</p>
+    <button class="you" onclick="you()">subscribe</button>
+
+    <p>Rock Paper Scissors</p>
+    <a href="/project-1/Rock.html">Click Here</a>
+
+    <p class="amazon">Amazon Shipping Calculator</p>
+    <p>Oders under $40 = +$10</p>
+    <p>Orders over $40 = FREE shipping</p>
+    <input class="input" onkeydown="if(event.key == 'Enter'){
+        input();
+    }" type="text" placeholder="Cost of order">
+    <button type="submit" class="button" onclick="input()">Calculate</button>
+    <p class="sum"></p>
+
+</body>
+<script>
+    function you(){
+
+        var a = document.querySelector('.you');
+        if(a.innerHTML === 'subscribe'){
+            a.innerHTML = 'subscribed';
+            a.classList.add('youu');
+        } else if ( a.innerHTML === 'subscribed'){
+            a.innerHTML = 'subscribe';
+            a.classList.remove('youu');
+        }
+    }
+
+    function input(){
+        var b = document.querySelector('.sum');
+        var a = document.querySelector('.input').value;
+        if(a<40){
+            b.innerHTML = `$${Number(a) + 10}`;
+        } else if (a>40){
+            b.innerHTML = `$${a}`;
+        }
+    }
+    
+</script>
+</html>
